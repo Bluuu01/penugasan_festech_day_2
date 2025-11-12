@@ -1,0 +1,1849 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fathur Rahman - Portfolio</title>
+    <link
+      rel="shortcut icon"
+      href="Arlecchino _ Genshin Impact.jpeg"
+      type="image/x-icon"
+      style="width: 64px; height: 64px; border-radius: 50%"~
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap");
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      :root {
+        /* Tema Gelap (Default) */
+        --primary: #1a1512;
+        --secondary: #2d2419;
+        --accent: #e2a16f;
+        --accent-light: #f0b885;
+        --accent-dark: #c98a54;
+        --text-primary: #f8fafc;
+        --text-secondary: #cbd5e1;
+        --border: #4a3828;
+        --gradient-primary: rgba(26, 21, 18, 0.95);
+        --gradient-secondary: rgba(45, 36, 25, 0.9);
+        --nav-bg: rgba(26, 21, 18, 0.8);
+        --nav-mobile-bg: rgba(26, 21, 18, 0.98);
+      }
+
+      /* Tema Terang (Light Mode) */
+      body.light-theme {
+        --primary: #fdfcfa;
+        --secondary: #f4f1ed;
+        --accent: #d1925f;
+        --accent-light: #e2a16f;
+        --accent-dark: #c98a54;
+        --text-primary: #1a1512;
+        --text-secondary: #4a3828;
+        --border: #e0d9d1;
+        --gradient-primary: rgba(253, 252, 250, 0.95);
+        --gradient-secondary: rgba(244, 241, 237, 0.9);
+        --nav-bg: rgba(253, 252, 250, 0.8);
+        --nav-mobile-bg: rgba(253, 252, 250, 0.98);
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: "Inter", sans-serif;
+        background: var(--primary);
+        color: var(--text-primary);
+        overflow-x: hidden;
+        transition: background-color 0.4s ease, color 0.4s ease;
+      }
+
+      /* Navigation */
+      nav {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        background: var(--nav-bg);
+        backdrop-filter: blur(12px);
+        padding: 1.2rem 0;
+        z-index: 1000;
+        border-bottom: 1px solid rgba(226, 161, 111, 0.1);
+        transition: background-color 0.4s ease, border-color 0.4s ease;
+      }
+
+      nav .container {
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 0 2rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .logo {
+        font-size: 1.5rem;
+        font-weight: 700;
+        background: linear-gradient(135deg, var(--accent), var(--accent-light));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      nav ul {
+        list-style: none;
+        display: flex;
+        gap: 2.5rem;
+        align-items: center;
+      }
+
+      nav a {
+        color: var(--text-secondary);
+        text-decoration: none;
+        font-weight: 500;
+        font-size: 0.95rem;
+        position: relative;
+        transition: color 0.3s ease;
+        letter-spacing: 0.02em;
+      }
+
+      nav a::after {
+        content: "";
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: var(--accent);
+        transition: width 0.3s ease;
+      }
+
+      nav a:hover {
+        color: var(--accent);
+      }
+
+      nav a.active {
+        color: var(--accent);
+      }
+      nav a.active::after {
+        width: 100%;
+      }
+
+      .theme-btn {
+        background: none;
+        border: none;
+        cursor: pointer;
+        font-size: 1.1rem;
+        color: var(--text-secondary);
+        transition: color 0.3s ease;
+        padding: 5px;
+      }
+
+      .theme-btn:hover {
+        color: var(--accent);
+      }
+
+      .theme-btn .fa-sun {
+        display: none;
+      }
+
+      body.light-theme .theme-btn .fa-sun {
+        display: inline-block;
+      }
+
+      body.light-theme .theme-btn .fa-moon {
+        display: none;
+      }
+
+      /* Hero Section */
+      .hero {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        overflow: hidden;
+        padding: 0 2rem;
+      }
+
+      .hero-bg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: radial-gradient(
+            circle at 20% 50%,
+            rgba(226, 161, 111, 0.1) 0%,
+            transparent 50%
+          ),
+          radial-gradient(
+            circle at 80% 80%,
+            rgba(240, 184, 133, 0.08) 0%,
+            transparent 50%
+          );
+      }
+
+      .hero-content {
+        max-width: 1400px;
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 4rem;
+        align-items: center;
+        position: relative;
+        z-index: 1;
+      }
+
+      .hero-text {
+        background-image: url("your-hero-background.jpg");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        padding: 3rem;
+        border-radius: 20px;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .hero-text::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          135deg,
+          var(--gradient-primary),
+          var(--gradient-secondary)
+        );
+        z-index: -1;
+        transition: background 0.4s ease;
+      }
+
+      #greeting-text {
+        color: var(--text-secondary);
+        font-weight: 500;
+        margin-bottom: 0.5rem;
+        font-size: clamp(1.2rem, 3vw, 1.5rem);
+        transition: color 0.4s ease;
+      }
+
+      .hero-text h1 {
+        font-size: clamp(2.5rem, 6vw, 4.5rem);
+        font-weight: 700;
+        line-height: 1.1;
+        margin-bottom: 1.5rem;
+        background: linear-gradient(
+          135deg,
+          var(--text-primary),
+          var(--text-secondary)
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        position: relative;
+        z-index: 1;
+        transition: background 0.4s ease;
+      }
+
+      .hero-text .highlight {
+        background: linear-gradient(135deg, var(--accent), var(--accent-light));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      .hero-text p {
+        font-size: 1.25rem;
+        color: var(--text-secondary);
+        margin-bottom: 2.5rem;
+        line-height: 1.7;
+        max-width: 600px;
+        position: relative;
+        z-index: 1;
+        transition: color 0.4s ease;
+      }
+
+      #typing-text {
+        border-right: 3px solid var(--accent);
+        animation: blink-cursor 0.75s step-end infinite;
+        min-height: 2.5rem;
+        display: inline-block;
+        max-width: 100%;
+        transition: border-color 0.4s ease;
+      }
+
+      @keyframes blink-cursor {
+        from,
+        to {
+          border-color: transparent;
+        }
+        50% {
+          border-color: var(--accent);
+        }
+      }
+
+      .cta-buttons {
+        display: flex;
+        gap: 1.5rem;
+        flex-wrap: wrap;
+        position: relative;
+        z-index: 1;
+      }
+
+      .btn {
+        padding: 1rem 2rem;
+        border-radius: 8px;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 1rem;
+        transition: all 0.3s ease;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        /* --- BARU --- */
+        border: none;
+        cursor: pointer;
+      }
+
+      .btn-primary {
+        background: var(--accent);
+        color: var(--primary);
+      }
+
+      body.light-theme .btn-primary {
+        color: white;
+      }
+
+      .btn-primary:hover {
+        background: var(--accent-light);
+        transform: translateY(-2px);
+        box-shadow: 0 6px 30px rgba(226, 161, 111, 0.4);
+      }
+
+      .btn-secondary {
+        background: transparent;
+        color: var(--text-primary);
+        border: 2px solid var(--border);
+      }
+
+      .btn-secondary:hover {
+        border-color: var(--accent);
+        background: rgba(226, 161, 111, 0.1);
+      }
+
+      .hero-image {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .profile-img {
+        background-image: url("holo.jpeg");
+        width: 350px;
+        height: 350px;
+        border-radius: 50%;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3),
+          0 0 0 20px rgba(0, 0, 0, 0.05);
+        position: relative;
+        animation: float 6s ease-in-out infinite;
+      }
+
+      body.light-theme .profile-img {
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15),
+          0 0 0 20px rgba(0, 0, 0, 0.02);
+      }
+
+      .profile-img img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+      }
+
+      .profile-img i {
+        font-size: 8rem;
+        color: white;
+      }
+
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0px);
+        }
+        50% {
+          transform: translateY(-20px);
+        }
+      }
+
+      /* Section Styles */
+      section {
+        padding: 8rem 2rem;
+        max-width: 1400px;
+        margin: 0 auto;
+      }
+
+      .section-header {
+        text-align: center;
+        margin-bottom: 5rem;
+      }
+
+      .section-tag {
+        color: var(--accent);
+        font-weight: 600;
+        font-size: 0.9rem;
+        text-transform: uppercase;
+        letter-spacing: 0.15em;
+        margin-bottom: 1rem;
+        transition: color 0.4s ease;
+      }
+
+      .section-title {
+        font-size: clamp(2.5rem, 5vw, 3.5rem);
+        font-weight: 700;
+        margin-bottom: 1rem;
+        transition: color 0.4s ease;
+      }
+
+      .section-subtitle {
+        color: var(--text-secondary);
+        font-size: 1.2rem;
+        max-width: 700px;
+        margin: 0 auto;
+        line-height: 1.7;
+        transition: color 0.4s ease;
+      }
+
+      /* About Section */
+      .about-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 4rem;
+        align-items: start;
+      }
+
+      .about-content {
+        background: var(--secondary);
+        padding: 3rem;
+        border-radius: 16px;
+        border: 1px solid var(--border);
+        transition: background-color 0.4s ease, border-color 0.4s ease;
+      }
+
+      .about-content p {
+        font-size: 1.1rem;
+        line-height: 1.8;
+        color: var(--text-secondary);
+        margin-bottom: 2rem;
+        transition: color 0.4s ease;
+      }
+
+      .interests-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+      }
+
+      .interest-item {
+        background: rgba(226, 161, 111, 0.05);
+        padding: 1.5rem;
+        border-radius: 12px;
+        border: 1px solid rgba(226, 161, 111, 0.1);
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        transition: all 0.3s ease;
+      }
+
+      .interest-item:hover {
+        background: rgba(226, 161, 111, 0.1);
+        border-color: var(--accent);
+        transform: translateX(5px);
+      }
+
+      .interest-item i {
+        font-size: 1.5rem;
+        color: var(--accent);
+        transition: color 0.4s ease;
+      }
+
+      .interest-item span {
+        font-weight: 500;
+        transition: color 0.4s ease;
+      }
+
+      /* Skills Section */
+      #skills {
+        background: var(--secondary);
+        border-radius: 24px;
+        margin: 0 2rem;
+        transition: background-color 0.4s ease;
+      }
+
+      .skills-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: 2rem;
+      }
+
+      .skill-card {
+        background: var(--primary);
+        padding: 3rem;
+        border-radius: 16px;
+        border: 1px solid var(--border);
+        transition: all 0.4s ease;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .skill-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 4px;
+        background: linear-gradient(90deg, var(--accent), var(--accent-light));
+        transform: scaleX(0);
+        transition: transform 0.4s ease;
+      }
+
+      .skill-card:hover::before {
+        transform: scaleX(1);
+      }
+
+      .skill-card:hover {
+        transform: translateY(-10px);
+        border-color: var(--accent);
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+      }
+
+      body.light-theme .skill-card:hover {
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+      }
+
+      .skill-icon {
+        width: 70px;
+        height: 70px;
+        background: rgba(226, 161, 111, 0.1);
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 1.5rem;
+      }
+
+      .skill-icon i {
+        font-size: 2rem;
+        color: var(--accent);
+        transition: color 0.4s ease;
+      }
+
+      .skill-card h3 {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+        font-weight: 600;
+        transition: color 0.4s ease;
+      }
+
+      .skill-card p {
+        color: var(--text-secondary);
+        line-height: 1.7;
+        transition: color 0.4s ease;
+      }
+
+      /* Contact Section */
+      .contact-container {
+        background: var(--secondary);
+        padding: 4rem;
+        border-radius: 24px;
+        border: 1px solid var(--border);
+        text-align: center;
+        transition: background-color 0.4s ease, border-color 0.4s ease;
+      }
+
+      /* --- BARU: Style untuk Form Kontak --- */
+      .contact-form {
+        display: grid;
+        gap: 1.5rem;
+        margin-bottom: 3rem;
+        text-align: left;
+        max-width: 700px; /* Agar tidak terlalu lebar di layar besar */
+        margin-left: auto;
+        margin-right: auto;
+      }
+      
+      .contact-form h3 {
+        font-size: 1.75rem;
+        font-weight: 600;
+        text-align: center;
+        margin-bottom: 1rem;
+      }
+
+      .form-group {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .form-group label {
+        margin-bottom: 0.5rem;
+        font-weight: 500;
+        color: var(--text-secondary);
+        font-size: 0.9rem;
+      }
+
+      .form-group input,
+      .form-group textarea {
+        background: var(--primary);
+        border: 2px solid var(--border);
+        border-radius: 8px;
+        padding: 1rem;
+        color: var(--text-primary);
+        font-family: "Inter", sans-serif;
+        font-size: 1rem;
+        transition: all 0.3s ease;
+      }
+
+      .form-group input:focus,
+      .form-group textarea:focus {
+        outline: none;
+        border-color: var(--accent);
+        box-shadow: 0 0 0 3px rgba(226, 161, 111, 0.2);
+      }
+      
+      .form-group textarea {
+        resize: vertical;
+        min-height: 120px;
+      }
+      
+      .contact-form .btn-primary {
+        width: 100%;
+        justify-content: center;
+        font-size: 1.1rem;
+        padding: 1.2rem 2rem;
+      }
+      /* --- AKHIR STYLE FORM --- */
+
+
+      .contact-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 2rem;
+        margin-top: 3rem;
+      }
+
+      .contact-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+      }
+
+      .contact-icon {
+        width: 80px;
+        height: 80px;
+        background: rgba(226, 161, 111, 0.1);
+        border: 2px solid rgba(226, 161, 111, 0.2);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.4s ease;
+      }
+
+      .contact-icon i {
+        font-size: 2rem;
+        color: var(--accent);
+        transition: all 0.4s ease;
+      }
+
+      .contact-item:hover .contact-icon {
+        background: var(--accent);
+        border-color: var(--accent);
+        transform: scale(1.1) rotate(10deg);
+      }
+
+      .contact-item:hover .contact-icon i {
+        color: white;
+      }
+
+      .contact-item a {
+        text-decoration: none;
+      }
+
+      .contact-item p {
+        font-weight: 600;
+        color: var(--text-secondary);
+        transition: color 0.3s ease;
+      }
+
+      .contact-item:hover p {
+        color: var(--accent);
+      }
+
+      /* Footer */
+      footer {
+        background: var(--secondary);
+        padding: 3rem 2rem;
+        text-align: center;
+        border-top: 1px solid var(--border);
+        transition: background-color 0.4s ease, border-color 0.4s ease;
+      }
+
+      footer p {
+        color: var(--text-secondary);
+        margin: 0.5rem 0;
+        transition: color 0.4s ease;
+      }
+
+      .footer-links {
+        display: flex;
+        justify-content: center;
+        gap: 2rem;
+        margin: 1.5rem 0;
+      }
+
+      .footer-links a {
+        color: var(--text-secondary);
+        text-decoration: none;
+        transition: color 0.3s ease;
+      }
+
+      .footer-links a:hover {
+        color: var(--accent);
+      }
+
+      /* Mobile Menu Toggle */
+      .menu-toggle {
+        display: none;
+        flex-direction: column;
+        gap: 5px;
+        cursor: pointer;
+      }
+
+      .menu-toggle span {
+        width: 25px;
+        height: 2px;
+        background: var(--text-primary);
+        transition: all 0.3s ease;
+      }
+
+      /* Responsive */
+      @media (max-width: 1024px) {
+        .hero-content {
+          grid-template-columns: 1fr;
+          text-align: center;
+          gap: 3rem;
+        }
+
+        .hero-text p {
+          margin: 0 auto 2.5rem;
+          position: relative;
+          z-index: 1;
+        }
+
+        .hero-text {
+          padding: 2rem;
+        }
+
+        #greeting-text {
+          text-align: center;
+        }
+
+        #typing-text {
+          margin-left: auto;
+          margin-right: auto;
+        }
+
+        .cta-buttons {
+          justify-content: center;
+        }
+
+        .profile-img {
+          width: 280px;
+          height: 280px;
+        }
+
+        .profile-img i {
+          font-size: 6rem;
+        }
+
+        .about-grid {
+          grid-template-columns: 1fr;
+          gap: 3rem;
+        }
+
+        .interests-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media (max-width: 768px) {
+        nav .container {
+          padding: 0 1.5rem;
+        }
+
+        .menu-toggle {
+          display: flex;
+        }
+
+        nav ul {
+          position: fixed;
+          top: 70px;
+          left: -100%;
+          width: 100%;
+          background: var(--nav-mobile-bg);
+          backdrop-filter: blur(12px);
+          flex-direction: column;
+          padding: 2rem;
+          gap: 1.5rem;
+          transition: left 0.3s ease, background-color 0.4s ease;
+          border-bottom: 1px solid var(--border);
+        }
+
+        nav ul.active {
+          left: 0;
+        }
+
+        .theme-btn {
+          font-size: 1.3rem;
+          color: var(--text-secondary);
+        }
+
+        section {
+          padding: 5rem 1.5rem;
+        }
+
+        .section-header {
+          margin-bottom: 3rem;
+        }
+
+        .about-content {
+          padding: 2rem;
+        }
+
+        .skills-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .skill-card {
+          padding: 2rem;
+        }
+
+        .contact-container {
+          padding: 2.5rem 1.5rem;
+        }
+
+        .contact-grid {
+          grid-template-columns: repeat(2, 1fr);
+          gap: 1.5rem;
+        }
+
+        #skills {
+          margin: 0 1rem;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .hero-text h1 {
+          font-size: 2rem;
+        }
+
+        .profile-img {
+          width: 220px;
+          height: 220px;
+        }
+
+        .profile-img i {
+          font-size: 5rem;
+        }
+
+        .cta-buttons {
+          flex-direction: column;
+          width: 100%;
+        }
+
+        .btn {
+          width: 100%;
+          justify-content: center;
+        }
+
+        .contact-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      /* Chatbot Toggle Button */
+    .chatbot-toggle {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      width: 60px;
+      height: 60px;
+      background: linear-gradient(135deg, var(--accent), var(--accent-light));
+      border-radius: 50%;
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 8px 25px rgba(226, 161, 111, 0.4);
+      transition: all 0.3s ease;
+      z-index: 1000;
+    }
+
+    .chatbot-toggle:hover {
+      transform: scale(1.1);
+      box-shadow: 0 12px 35px rgba(226, 161, 111, 0.6);
+    }
+
+    .chatbot-toggle i {
+      font-size: 1.5rem;
+      color: white;
+    }
+
+    /* Chatbot Container */
+    .chatbot-container {
+      position: fixed;
+      bottom: 100px;
+      right: 30px;
+      width: 380px;
+      max-width: calc(100vw - 40px);
+      height: 550px;
+      background: var(--secondary);
+      border-radius: 20px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+      display: none;
+      flex-direction: column;
+      overflow: hidden;
+      z-index: 999;
+      border: 1px solid var(--border);
+      transition: all 0.4s ease;
+    }
+
+    .chatbot-container.active {
+      display: flex;
+    }
+
+    /* Chatbot Header */
+    .chatbot-header {
+      background: linear-gradient(135deg, var(--accent), var(--accent-light));
+      padding: 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .chatbot-header h3 {
+      color: white;
+      font-size: 1.2rem;
+      font-weight: 600;
+    }
+
+    .chatbot-close {
+      background: transparent;
+      border: none;
+      color: white;
+      font-size: 1.5rem;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .chatbot-close:hover {
+      transform: rotate(90deg);
+    }
+
+    /* Chat Messages */
+    .chatbot-messages {
+      flex: 1;
+      padding: 1.5rem;
+      overflow-y: auto;
+      background: var(--primary);
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .chatbot-messages::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    .chatbot-messages::-webkit-scrollbar-track {
+      background: var(--secondary);
+    }
+
+    .chatbot-messages::-webkit-scrollbar-thumb {
+      background: var(--accent);
+      border-radius: 10px;
+    }
+
+    .message {
+      display: flex;
+      gap: 0.8rem;
+      animation: slideIn 0.3s ease;
+    }
+
+    @keyframes slideIn {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .message-avatar {
+      width: 35px;
+      height: 35px;
+      border-radius: 50%;
+      background: var(--accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .message-avatar i {
+      color: white;
+      font-size: 0.9rem;
+    }
+
+    .message-content {
+      background: var(--secondary);
+      padding: 1rem 1.2rem;
+      border-radius: 15px;
+      max-width: 75%;
+      line-height: 1.6;
+      border: 1px solid var(--border);
+    }
+
+    .message.user {
+      flex-direction: row-reverse;
+    }
+
+    .message.user .message-avatar {
+      background: linear-gradient(135deg, #667eea, #764ba2);
+    }
+
+    .message.user .message-content {
+      background: var(--accent);
+      color: white;
+      border: none;
+    }
+
+    /* Quick Replies */
+    .quick-replies {
+      padding: 1rem 1.5rem;
+      background: var(--secondary);
+      border-top: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+    }
+
+    .quick-reply-btn {
+      background: var(--primary);
+      border: 2px solid var(--border);
+      padding: 0.8rem 1rem;
+      border-radius: 10px;
+      color: var(--text-primary);
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-family: "Inter", sans-serif;
+      font-size: 0.9rem;
+      text-align: left;
+      font-weight: 500;
+    }
+
+    .quick-reply-btn:hover {
+      background: var(--accent);
+      color: white;
+      border-color: var(--accent);
+      transform: translateX(5px);
+    }
+
+    /* Typing Indicator */
+    .typing-indicator {
+      display: none;
+      gap: 0.8rem;
+    }
+
+    .typing-indicator.active {
+      display: flex;
+    }
+
+    .typing-dots {
+      background: var(--secondary);
+      padding: 1rem 1.2rem;
+      border-radius: 15px;
+      display: flex;
+      gap: 5px;
+      border: 1px solid var(--border);
+    }
+
+    .typing-dot {
+      width: 8px;
+      height: 8px;
+      background: var(--accent);
+      border-radius: 50%;
+      animation: typing 1.4s infinite;
+    }
+
+    .typing-dot:nth-child(2) {
+      animation-delay: 0.2s;
+    }
+
+    .typing-dot:nth-child(3) {
+      animation-delay: 0.4s;
+    }
+
+    @keyframes typing {
+      0%, 60%, 100% {
+        transform: translateY(0);
+      }
+      30% {
+        transform: translateY(-10px);
+      }
+    }
+
+    /* Chatbot Input */
+    .chatbot-input {
+      padding: 1.2rem;
+      background: var(--secondary);
+      border-top: 1px solid var(--border);
+      display: flex;
+      gap: 0.8rem;
+    }
+
+    .chatbot-input input {
+      flex: 1;
+      background: var(--primary);
+      border: 2px solid var(--border);
+      border-radius: 25px;
+      padding: 0.8rem 1.2rem;
+      color: var(--text-primary);
+      font-family: "Inter", sans-serif;
+      font-size: 0.95rem;
+      transition: all 0.3s ease;
+    }
+
+    .chatbot-input input:focus {
+      outline: none;
+      border-color: var(--accent);
+    }
+
+    .chatbot-input button {
+      background: var(--accent);
+      border: none;
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+      color: white;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .chatbot-input button:hover {
+      background: var(--accent-light);
+      transform: scale(1.1);
+    }
+
+    .chatbot-input button i {
+      font-size: 1rem;
+    }
+
+    /* Responsive */
+    @media (max-width: 480px) {
+      .chatbot-container {
+        bottom: 0;
+        right: 0;
+        width: 100%;
+        max-width: 100%;
+        height: 100vh;
+        border-radius: 0;
+      }
+
+      .chatbot-toggle {
+        bottom: 20px;
+        right: 20px;
+      }
+    }
+    </style>
+  </head>
+
+  <body>
+    <nav>
+      <div class="container">
+        <div class="logo">FR</div>
+        <div class="menu-toggle" onclick="toggleMenu()">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <ul id="navMenu">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li>
+            <a
+              href="https://myanimelist.net/character/7373/Holo"
+              target="_blank"
+              >HOLO</a
+            >
+          </li>
+          <li>
+            <button
+              id="theme-toggle"
+              class="theme-btn"
+              aria-label="Toggle theme"
+            >
+              <i class="fas fa-moon"></i>
+              <i class="fas fa-sun"></i>
+            </button>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <section id="home" class="hero">
+      <div class="hero-bg"></div>
+      <div class="hero-content">
+        <div class="hero-text">
+          <h2 id="greeting-text"></h2>
+          <h1>Hi, I'm <span class="highlight">Fathur Rahman</span></h1>
+          <p id="typing-text"></p>
+          <div class="cta-buttons">
+            <a href="#contact" class="btn btn-primary">
+              Get In Touch <i class="fas fa-arrow-right"></i>
+            </a>
+            <a href="#about" class="btn btn-secondary"> Learn More </a>
+          </div>
+        </div>
+        <div class="hero-image">
+          <div class="profile-img">
+            <i></i>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="section-header">
+        <div class="section-tag">Get to know me</div>
+        <h2 class="section-title">About Me</h2>
+        <p class="section-subtitle">
+          A brief introduction to who I am and what I love to do
+        </p>
+      </div>
+      <div class="about-grid">
+        <div class="about-content">
+          <p>
+            I'm an enthusiastic web developer and machine learning engineer with
+            experience creating engaging and functional websites and projects.
+            With a background in information technology, I'm always striving to
+            learn and stay up-to-date on the latest developments in the
+            programming world.
+          </p>
+          <p>
+            I believe that the combination of creativity and technical skills is
+            key to producing high-quality digital products and providing the
+            best user experience.
+          </p>
+        </div>
+        <div>
+          <h3 style="margin-bottom: 2rem; font-size: 1.5rem">What I Love</h3>
+          <div class="interests-grid">
+            <div class="interest-item">
+              <i class="fas fa-code"></i>
+              <span>Web Development</span>
+            </div>
+            <div class="interest-item">
+              <i class="fas fa-palette"></i>
+              <span>UI/UX Design</span>
+            </div>
+            <div class="interest-item">
+              <i class="fa-solid fa-robot"></i>
+              <span>Artificial Intelligence</span>
+            </div>
+            <div class="interest-item">
+              <i class="fa-solid fa-medal"></i>
+              <span>Badminton</span>
+            </div>
+            <div class="interest-item">
+              <i class="fas fa-book"></i>
+              <span>Continuous Learning</span>
+            </div>
+            <div class="interest-item">
+              <i class="fas fa-gamepad"></i>
+              <span>Gaming (Valorant)</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="section-header">
+        <div class="section-tag">My Expertise</div>
+        <h2 class="section-title">Skills & Interests</h2>
+        <p class="section-subtitle">
+          Technologies and areas where I excel and continue to grow
+        </p>
+      </div>
+      <div class="skills-grid">
+        <div class="skill-card">
+          <div class="skill-icon">
+            <i class="fab fa-html5"></i>
+          </div>
+          <h3>Frontend Development</h3>
+          <p>
+            Understand the basics of website creation and also be able to use AI
+            in website creation
+          </p>
+        </div>
+        <div class="skill-card">
+          <div class="skill-icon">
+            <i class="fa-brands fa-python"></i>
+          </div>
+          <h3>Python</h3>
+          <p>
+            Can understand and comprehend the logic in Python programming.
+          </p>
+        </div>
+        <div class="skill-card">
+          <div class="skill-icon">
+            <i class="fa-solid fa-square-binary"></i>
+          </div>
+          <h3>Machine Learning Engineer</h3>
+          <p>
+            Understand the fundamentals of a machine learning engineer,
+            including data processing and data collection, and how computers
+            work.
+          </p>
+        </div>
+        <div class="skill-card">
+          <div class="skill-icon">
+            <i class="fas fa-mobile-alt"></i>
+          </div>
+          <h3>Responsive Design</h3>
+          <p>
+            Create a website that adapts seamlessly across various devices and
+            screen sizes for an optimal experience.
+          </p>
+        </div>
+        <div class="skill-card">
+          <div class="skill-icon">
+            <i class="fas fa-lightbulb"></i>
+          </div>
+          <h3>Problem Solving</h3>
+          <p>
+            Strong analytical skills to solve technical problems with efficient
+            and innovative solutions
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="section-header">
+        <div class="section-tag">Let's Connect</div>
+        <h2 class="section-title">Contact Me</h2>
+        <p class="section-subtitle">
+          Feel free to reach out through any of these platforms or send me a
+          message directly.
+        </p>
+      </div>
+      <div class="contact-container">
+        
+        <form
+          action="https://formsubmit.co/frahman4285644@gmail.com"
+          method="POST"
+          class="contact-form"
+        >
+          <h3>Send Me a Message</h3>
+          
+          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_template" value="table">
+
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" name="name" id="name" required />
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" name="email" id="email" required />
+          </div>
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea
+              name="message"
+              id="message"
+              rows="5"
+              required
+            ></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary">
+            Send Message <i class="fas fa-paper-plane"></i>
+          </button>
+        </form>
+        <div class="contact-grid">
+          <div class="contact-item">
+            <a href="mailto:frahman4285644@gmail.com">
+              <div class="contact-icon">
+                <i class="fas fa-envelope"></i>
+              </div>
+            </a>
+            <p>Email</p>
+          </div>
+          <div class="contact-item">
+            <a href="https://linkedin.com/in/fathur-rahman01" target="_blank">
+              <div class="contact-icon">
+                <i class="fab fa-linkedin-in"></i>
+              </div>
+            </a>
+            <p>LinkedIn</p>
+          </div>
+          <div class="contact-item">
+            <a href="https://github.com/Bluuu01" target="_blank">
+              <div class="contact-icon">
+                <i class="fab fa-github"></i>
+              </div>
+            </a>
+            <p>GitHub</p>
+          </div>
+          <div class="contact-item">
+            <a href="https://instagram.com/fathur_rrahman0" target="_blank">
+              <div class="contact-icon">
+                <i class="fab fa-instagram"></i>
+              </div>
+            </a>
+            <p>Instagram</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <footer>
+      <p style="font-size: 1.1rem; margin-bottom: 1rem">
+        &copy; 2025 Fathur Rahman
+      </p>
+      <div class="footer-links">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <p style="margin-top: 1rem">
+        Crafted with <i class="fas fa-heart" style="color: #e2a16f"></i> and
+        dedication
+      </p>
+    </footer>
+
+    <!-- Chatbot Toggle Button -->
+  <button class="chatbot-toggle" id="chatbotToggle">
+    <i class="fas fa-comment-dots"></i>
+  </button>
+
+  <!-- Chatbot Container -->
+  <div class="chatbot-container" id="chatbotContainer">
+    <!-- Header -->
+    <div class="chatbot-header">
+      <h3><i class="fas fa-robot"></i> Assistant Holo</h3>
+      <button class="chatbot-close" id="chatbotClose">
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+
+    <!-- Messages -->
+    <div class="chatbot-messages" id="chatbotMessages">
+      <div class="message">
+        <div class="message-avatar">
+          <i class="fas fa-robot"></i>
+        </div>
+        <div class="message-content">
+          Halo! 👋 Saya asisten virtual Fathur Rahman. Ada yang bisa saya bantu?
+        </div>
+      </div>
+
+      <!-- Typing Indicator -->
+      <div class="typing-indicator" id="typingIndicator">
+        <div class="message-avatar">
+          <i class="fas fa-robot"></i>
+        </div>
+        <div class="typing-dots">
+          <span class="typing-dot"></span>
+          <span class="typing-dot"></span>
+          <span class="typing-dot"></span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Quick Replies -->
+    <div class="quick-replies" id="quickReplies">
+      <button class="quick-reply-btn" data-topic="skills">
+        💡 Apa skill yang dimiliki?
+      </button>
+      <button class="quick-reply-btn" data-topic="projects">
+        🚀 Ceritakan tentang proyekmu
+      </button>
+      <button class="quick-reply-btn" data-topic="contact">
+        📧 Bagaimana cara menghubungimu?
+      </button>
+    </div>
+
+    <!-- Input -->
+    <div class="chatbot-input">
+      <input type="text" id="userInput" placeholder="Ketik pesan...">
+      <button id="sendBtn">
+        <i class="fas fa-paper-plane"></i>
+      </button>
+    </div>
+  </div>
+
+    <script>
+      // Script Menu Toggle
+      function toggleMenu() {
+        const menu = document.getElementById("navMenu");
+        menu.classList.toggle("active");
+      }
+
+      document.querySelectorAll("nav a").forEach((link) => {
+        link.addEventListener("click", () => {
+          document.getElementById("navMenu").classList.remove("active");
+        });
+      });
+
+      // Script Active Nav Link on Scroll
+      window.addEventListener("scroll", () => {
+        let current = "";
+        const sections = document.querySelectorAll("section");
+        const navHeight = document.querySelector("nav").offsetHeight;
+
+        sections.forEach((section) => {
+          const sectionTop = section.offsetTop;
+          if (pageYOffset >= sectionTop - navHeight - 100) {
+            current = section.getAttribute("id");
+          }
+        });
+
+        document.querySelectorAll("nav a").forEach((link) => {
+          link.classList.remove("active");
+          if (link.getAttribute("href").startsWith("#")) {
+            if (link.getAttribute("href").substring(1) === current) {
+              link.classList.add("active");
+            }
+          }
+        });
+      });
+
+      // Script Ekstra
+      document.addEventListener("DOMContentLoaded", () => {
+        // 1. Fungsi Sapaan
+        function setGreeting() {
+          const greetingElement = document.getElementById("greeting-text");
+          if (!greetingElement) return;
+
+          const now = new Date();
+          const hour = now.getHours();
+          let greeting;
+
+          if (hour >= 4 && hour < 11) {
+            greeting = "Selamat Pagi,";
+          } else if (hour >= 11 && hour < 15) {
+            greeting = "Selamat Siang,";
+          } else if (hour >= 15 && hour < 18) {
+            greeting = "Selamat Sore,";
+          } else {
+            greeting = "Selamat Malam,";
+          }
+          greetingElement.textContent = greeting;
+        }
+
+        // 2. Fungsi Animasi Ketik
+        const typingElement = document.getElementById("typing-text");
+        if (typingElement) {
+          const phrases = [
+            "Passionate developer creating amazing digital experiences.",
+            "Enthusiastic in Web Development and UI/UX.",
+            "A student with a strong interest in Machine Learning.",
+            "Always eager to learn new technologies.",
+          ];
+
+          let phraseIndex = 0;
+          let charIndex = 0;
+          let isDeleting = false;
+
+          const typeSpeed = 100;
+          const deleteSpeed = 50;
+          const pauseEnd = 2000;
+          const pauseStart = 500;
+
+          function type() {
+            const currentPhrase = phrases[phraseIndex];
+            let displayText = "";
+            let currentSpeed = typeSpeed;
+
+            if (isDeleting) {
+              displayText = currentPhrase.substring(0, charIndex - 1);
+              charIndex--;
+              currentSpeed = deleteSpeed;
+            } else {
+              displayText = currentPhrase.substring(0, charIndex + 1);
+              charIndex++;
+            }
+
+            typingElement.textContent = displayText;
+
+            if (!isDeleting && charIndex === currentPhrase.length) {
+              isDeleting = true;
+              currentSpeed = pauseEnd;
+            } else if (isDeleting && charIndex === 0) {
+              isDeleting = false;
+              phraseIndex = (phraseIndex + 1) % phrases.length;
+              currentSpeed = pauseStart;
+            }
+
+            setTimeout(type, currentSpeed);
+          }
+
+          type();
+        }
+
+        // Panggil fungsi sapaan
+        setGreeting();
+
+        // 3. Fungsi Theme Toggle
+        const themeToggle = document.getElementById("theme-toggle");
+        const body = document.body;
+
+        if (localStorage.getItem("theme") === "light") {
+          body.classList.add("light-theme");
+        }
+
+        themeToggle.addEventListener("click", () => {
+          body.classList.toggle("light-theme");
+
+          if (body.classList.contains("light-theme")) {
+            localStorage.setItem("theme", "light");
+          } else {
+            localStorage.setItem("theme", "dark");
+          }
+        });
+      });
+
+      const chatbotToggle = document.getElementById('chatbotToggle');
+    const chatbotContainer = document.getElementById('chatbotContainer');
+    const chatbotClose = document.getElementById('chatbotClose');
+    const chatbotMessages = document.getElementById('chatbotMessages');
+    const userInput = document.getElementById('userInput');
+    const sendBtn = document.getElementById('sendBtn');
+    const quickReplies = document.getElementById('quickReplies');
+    const typingIndicator = document.getElementById('typingIndicator');
+
+    // Bot responses dengan 3 varian untuk setiap topik
+    const botResponses = {
+      skills: [
+        "Fathur memiliki keahlian dalam Frontend Development dengan HTML, CSS, dan JavaScript. Dia juga menguasai Python dan Machine Learning. Selain itu, dia ahli dalam membuat responsive design yang modern! 💻",
+        "Skill utama Fathur meliputi Web Development, UI/UX Design, dan Machine Learning Engineering. Dia passionate dalam menciptakan pengalaman digital yang menarik dan fungsional! 🎨",
+        "Fathur adalah seorang developer yang versatile! Dia menguasai HTML, CSS, JavaScript untuk frontend, Python untuk backend dan ML, serta memiliki kemampuan problem solving yang kuat. 🚀"
+      ],
+      projects: [
+        "Fathur telah mengerjakan berbagai proyek web development dan machine learning. Dia fokus pada pembuatan aplikasi yang user-friendly dengan implementasi AI. Portfolio lengkapnya bisa kamu lihat di GitHub! 📱",
+        "Proyek-proyek Fathur mencakup website interaktif, aplikasi berbasis ML, dan berbagai eksperimen dengan teknologi terbaru. Setiap proyek dirancang dengan perhatian detail terhadap UX! 🎯",
+        "Dari website portfolio hingga aplikasi machine learning, Fathur selalu menerapkan best practices dalam coding. Dia juga aktif berkontribusi di GitHub dengan berbagai project menarik! 💡"
+      ],
+      contact: [
+        "Kamu bisa menghubungi Fathur melalui email di frahman4285644@gmail.com atau connect di LinkedIn! Dia juga aktif di Instagram @fathur_rrahman0. Jangan ragu untuk say hi! 👋",
+        "Untuk kolaborasi atau pertanyaan, hubungi Fathur via email atau LinkedIn. Kamu juga bisa cek project-projectnya di GitHub @Bluuu01. Dia akan senang mendengar darimu! 📧",
+        "Fathur terbuka untuk diskusi dan kolaborasi! Reach out melalui email, LinkedIn, atau Instagram. Kamu juga bisa langsung mengisi form kontak di website ini! 🤝"
+      ],
+      greeting: [
+        "Halo! Senang bertemu denganmu! 😊 Silakan pilih topik yang ingin kamu ketahui atau tanyakan langsung!",
+        "Hi there! 👋 Ada yang bisa saya bantu tentang Fathur Rahman? Pilih pertanyaan di bawah atau chat langsung!",
+        "Selamat datang! 🎉 Mau tahu lebih banyak tentang Fathur? Yuk pilih topik atau tanya apa saja!"
+      ],
+      default: [
+        "Maaf, saya kurang mengerti pertanyaanmu 😅 Coba pilih salah satu topik di bawah atau tanyakan tentang skills, projects, atau cara menghubungi Fathur!",
+        "Hmm, saya belum bisa menjawab itu dengan baik. Tapi saya bisa bantu kamu tahu lebih banyak tentang skills, projects, atau kontak Fathur! 🤔",
+        "Pertanyaan menarik! Tapi saya lebih ahli untuk menjawab tentang keahlian Fathur, proyeknya, atau cara menghubunginya. Mau coba tanya yang itu? 💬"
+      ]
+    };
+
+    let messageCount = 0; // Untuk tracking varian response
+
+    // ===== FUNCTIONS =====
+    
+    // Fungsi untuk toggle chatbot
+    function toggleChatbot() {
+      chatbotContainer.classList.toggle('active');
+      if (chatbotContainer.classList.contains('active')) {
+        userInput.focus();
+      }
+    }
+
+    // Fungsi untuk menambah pesan
+    function addMessage(message, isUser = false) {
+      const messageDiv = document.createElement('div');
+      messageDiv.className = `message ${isUser ? 'user' : ''}`;
+      
+      messageDiv.innerHTML = `
+        <div class="message-avatar">
+          <i class="fas fa-${isUser ? 'user' : 'robot'}"></i>
+        </div>
+        <div class="message-content">${message}</div>
+      `;
+      
+      chatbotMessages.insertBefore(messageDiv, typingIndicator);
+      scrollToBottom();
+    }
+
+    // Fungsi untuk show typing indicator
+    function showTypingIndicator() {
+      typingIndicator.classList.add('active');
+      scrollToBottom();
+    }
+
+    // Fungsi untuk hide typing indicator
+    function hideTypingIndicator() {
+      typingIndicator.classList.remove('active');
+    }
+
+    // Fungsi untuk scroll ke bawah
+    function scrollToBottom() {
+      chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+    }
+
+    // Fungsi untuk mendapatkan response bot
+    function getBotResponse(topic) {
+      let responses;
+      
+      // IF-ELSE STATEMENT untuk menentukan response
+      if (topic === 'skills') {
+        responses = botResponses.skills;
+      } else if (topic === 'projects') {
+        responses = botResponses.projects;
+      } else if (topic === 'contact') {
+        responses = botResponses.contact;
+      } else if (topic === 'greeting') {
+        responses = botResponses.greeting;
+      } else {
+        responses = botResponses.default;
+      }
+      
+      // Rotate antara 3 varian response
+      const variantIndex = messageCount % 3;
+      messageCount++;
+      
+      return responses[variantIndex];
+    }
+
+    // Fungsi untuk handle user message
+    function handleUserMessage(message) {
+      if (!message.trim()) return;
+      
+      addMessage(message, true);
+      userInput.value = '';
+      
+      showTypingIndicator();
+      
+      // Simulate bot thinking time
+      setTimeout(() => {
+        hideTypingIndicator();
+        
+        const lowerMessage = message.toLowerCase();
+        let topic;
+        
+        // IF-ELSE STATEMENT untuk keyword detection
+        if (lowerMessage.includes('skill') || lowerMessage.includes('kemampuan') || lowerMessage.includes('keahlian')) {
+          topic = 'skills';
+        } else if (lowerMessage.includes('project') || lowerMessage.includes('proyek') || lowerMessage.includes('portfolio')) {
+          topic = 'projects';
+        } else if (lowerMessage.includes('contact') || lowerMessage.includes('hubungi') || lowerMessage.includes('email')) {
+          topic = 'contact';
+        } else if (lowerMessage.includes('halo') || lowerMessage.includes('hi') || lowerMessage.includes('hello')) {
+          topic = 'greeting';
+        } else {
+          topic = 'default';
+        }
+        
+        const response = getBotResponse(topic);
+        addMessage(response);
+      }, 1500);
+    }
+
+    // ===== EVENT LISTENERS =====
+    
+    // Toggle chatbot button
+    chatbotToggle.addEventListener('click', toggleChatbot);
+    
+    // Close chatbot button
+    chatbotClose.addEventListener('click', toggleChatbot);
+    
+    // Send message button
+    sendBtn.addEventListener('click', () => {
+      handleUserMessage(userInput.value);
+    });
+    
+    // Enter key to send message
+    userInput.addEventListener('keypress', (e) => {
+      if (e.key === 'Enter') {
+        handleUserMessage(userInput.value);
+      }
+    });
+    
+    // Quick reply buttons - menggunakan EVENT DELEGATION
+    quickReplies.addEventListener('click', (e) => {
+      if (e.target.classList.contains('quick-reply-btn')) {
+        const topic = e.target.dataset.topic;
+        const buttonText = e.target.textContent.trim();
+        
+        addMessage(buttonText, true);
+        
+        showTypingIndicator();
+        
+        setTimeout(() => {
+          hideTypingIndicator();
+          const response = getBotResponse(topic);
+          addMessage(response);
+        }, 1500);
+      }
+    });
+
+    // ===== THEME SYNC (Optional) =====
+    // Sinkronisasi dengan theme website jika ada
+    const observer = new MutationObserver((mutations) => {
+      mutations.forEach((mutation) => {
+        if (mutation.attributeName === 'class') {
+          document.body.className = mutation.target.className;
+        }
+      });
+    });
+
+    // Observe parent document jika chatbot di-embed
+    if (window.parent && window.parent.document.body !== document.body) {
+      observer.observe(window.parent.document.body, {
+        attributes: true,
+        attributeFilter: ['class']
+      });
+    }
+    </script>
+  </body>
+</html>
